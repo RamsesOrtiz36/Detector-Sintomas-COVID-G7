@@ -1,0 +1,64 @@
+# Detector de sintomas covid bases de datos
+
+Usando los sensores MAX30100 para el ritmo cardiaco y oxigenación y termometro IR
+
+## Instruccuiones para instalar las bases de datos MySQL desde terminal
+
+* Se recomienda actiualizar el sistema Ubuntu mediante 
+	sudo apt update
+
+* Instalar el servidor MySQL
+	sudo apt install mysql-server
+
+## Ejercicios de Creación y visualización de tablas en servidor MySQL para guardar los datos de los sensores
+
+En este ejercicio se van a trabajr en 3 secciones:
+ 
+* Bses de datos
+* Programa para ESP32CAM que detecta los valores de los sensores y lo envian en MQTT a node-red
+* Node-Red
+
+No olvidar crear el reposiorio del ejercicio con carpeta MySQL
+
+### Primero crear la base de datos en MySQL
+
+la tabla debe contener:     
+ID  
+Fecha   
+Nombre  
+Correo  
+Temperatura 
+Ritmo cardiaco  
+Oxigenación (SPO2)  
+Proto-diagnostico   
+
+### Instruciones en terminal para crear base de datos una vez instalada Mysql-server
+Entrar a base de datos mysql
+
+	sudo mysql
+Crear base de datos
+create databases  
+    
+    DetectorSintomas;		//DetectorSintomas es el nombre de la base de datos, no olvidar terminar la instrucción con ";"
+
+Consultar la base de datos creada
+    
+    show databases;
+
+Seleccionar base de datos
+
+    use DetectorSintomas;				//"use" es la instrucción y "DetectorSintomas" es el nombre de la base de datos a usar
+Consultar tablas
+
+	show tables;					// Dentro de la base de datos puede haber diferentess tablas independientes
+
+Crear una tabla
+
+	create table Registro (			);	//"Registro" es el nombre de la tabla, dentro de los parentesis se escriben los titulos de las columnas en el orden que van a aparecer
+							// con el tipo de variable que van a contener y su dimension dentro de parentesis ejemplo (ID INT, Fecha TIMESTAMP, Nombre Char(246))
+Ver tabla
+
+	describe Registro; 
+
+
+
