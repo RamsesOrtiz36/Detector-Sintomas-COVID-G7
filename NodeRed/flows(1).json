@@ -1,0 +1,222 @@
+[
+    {
+        "id": "8a138c6a71224dea",
+        "type": "tab",
+        "label": "Detector de sintomas COVID",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c8808f398236e5c8",
+        "type": "function",
+        "z": "8a138c6a71224dea",
+        "name": "Ritmo cardiaco",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "38da5ea5575af6bb"
+            ]
+        ]
+    },
+    {
+        "id": "3766c742d1a208b7",
+        "type": "function",
+        "z": "8a138c6a71224dea",
+        "name": "Oxigenación (%)",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "91e98e92557b1571"
+            ]
+        ]
+    },
+    {
+        "id": "e6371ddabf4d2a7a",
+        "type": "function",
+        "z": "8a138c6a71224dea",
+        "name": "Temperatua IR (°C)",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "b2073416dab2648f"
+            ]
+        ]
+    },
+    {
+        "id": "1e84990236a9aa1c",
+        "type": "json",
+        "z": "8a138c6a71224dea",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "c8808f398236e5c8",
+                "3766c742d1a208b7",
+                "e6371ddabf4d2a7a"
+            ]
+        ]
+    },
+    {
+        "id": "7d10fbf8734a83e3",
+        "type": "mqtt in",
+        "z": "8a138c6a71224dea",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 50,
+        "y": 60,
+        "wires": [
+            [
+                "1e84990236a9aa1c"
+            ]
+        ]
+    },
+    {
+        "id": "38da5ea5575af6bb",
+        "type": "ui_chart",
+        "z": "8a138c6a71224dea",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1F77B4",
+            "#AEC7E8",
+            "#FF7F0E",
+            "#2CA02C",
+            "#98DF8A",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91e98e92557b1571",
+        "type": "ui_gauge",
+        "z": "8a138c6a71224dea",
+        "name": "",
+        "group": "b1660689d4232711",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Oxigenación",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#729fcf",
+            "#fce94f",
+            "#4e9a06"
+        ],
+        "seg1": "88",
+        "seg2": "92",
+        "className": "",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b2073416dab2648f",
+        "type": "ui_gauge",
+        "z": "8a138c6a71224dea",
+        "name": "",
+        "group": "b1660689d4232711",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatua IR",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#3465a4",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "34",
+        "seg2": "36.5",
+        "className": "",
+        "x": 640,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b1660689d4232711",
+        "type": "ui_group",
+        "name": "Historial Sensores",
+        "tab": "3ae0369a73a8f74d",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3ae0369a73a8f74d",
+        "type": "ui_tab",
+        "name": "Estacion climatica G7",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

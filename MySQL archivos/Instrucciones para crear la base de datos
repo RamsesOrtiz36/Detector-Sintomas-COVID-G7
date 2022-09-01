@@ -4,10 +4,12 @@ Usando los sensores MAX30100 para el ritmo cardiaco y oxigenación y termometro 
 
 ## Instruccuiones para instalar las bases de datos MySQL desde terminal
 
-* Se recomienda actiualizar el sistema Ubuntu mediante 
-	sudo apt update
+Se recomienda actiualizar el sistema Ubuntu mediante
 
-* Instalar el servidor MySQL
+    sudo apt update
+
+Instalar el servidor MySQL
+
 	sudo apt install mysql-server
 
 ## Ejercicios de Creación y visualización de tablas en servidor MySQL para guardar los datos de los sensores
@@ -32,14 +34,15 @@ Ritmo cardiaco
 Oxigenación (SPO2)  
 Proto-diagnostico   
 
-### Instruciones en terminal para crear base de datos una vez instalada Mysql-server
-Entrar a base de datos mysql
+### Instruciones en terminal para crear base de datos una vez instalada mysql-server
+
+Entrar a base de datos mysql desde terminal
 
 	sudo mysql
+
 Crear base de datos
-create databases  
-    
-    DetectorSintomas;		//DetectorSintomas es el nombre de la base de datos, no olvidar terminar la instrucción con ";"
+
+    create databases  DetectorSintomas;		//DetectorSintomas es el nombre de la base de datos, no olvidar terminar la instrucción con ";"
 
 Consultar la base de datos creada
     
