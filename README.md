@@ -41,9 +41,10 @@ Para la base de datos se ocupa instalar MySQL.
 * Ver las tablas existentes en la base de datos
 
       show tables;
-* Crear una tabla dentro de la base de datos usada
+* Crear una tabla dentro de la base de datos usada, con los pares de Encabezdo de columna y el tipo de dato de la columna (Nombre_Columna Tipo_de_ dato, Nombre_Columna Tipo_de_ dato, ... )
 
-      create table Registro;
+      create table Registro (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, nombre CHAR (248) NOT NULL, correo CHAR (248) NOT NULL, temp FLOAT(4,2) NOT NULL, bpm INT(1) UNSIGNED NOT NULL, sp02 INT(1) UNSIGNED NOT NULL, protodiagnostico CHAR (248) NOT NULL);
+
 * Ver el tipo de datos de cada columna de la tabla 
 
       Describe table Registro;
